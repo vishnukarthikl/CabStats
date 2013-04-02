@@ -1,0 +1,82 @@
+<div>
+
+    <form class="form-horizontal" id="customer" modelattribute="customer" method="POST" action="/register" >
+        <fieldset>
+
+            <!-- Form Name -->
+            <h2>Customer Registration</h2>
+
+            <!-- Text input-->
+            <div class="control-group">
+                <label class="control-label">Name</label>
+
+                <div class="controls">
+                    <input id="name" name="name" type="text" placeholder="Enter the name" class="input-xlarge">
+
+                    <p class="help-block"></p>
+                </div>
+            </div>
+
+            <!-- Prepended text-->
+            <div class="control-group">
+                <label class="control-label">Phone No</label>
+
+                <div class="controls">
+                    <div class="input-prepend">
+                        <span class="add-on">+91</span>
+                        <input id="msisdn" name="msisdn" class="span12" placeholder="10 digit phone numbe"
+                               type="text">
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Text input-->
+            <div class="control-group">
+                <label class="control-label">Street Address</label>
+
+                <div class="controls">
+                    <input id="street" name="street" type="text" placeholder="Enter the Street Address" class="input-xlarge">
+
+                    <p class="help-block"></p>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">Area</label>
+
+                <div class="controls">
+                    <input id="area" name="area" type="text" placeholder="Locality" class="input-xlarge">
+
+                </div>
+            </div>
+
+
+            <!-- Text input-->
+            <div class="control-group">
+                <label class="control-label">Pin Code</label>
+
+                <div class="controls">
+                    <input id="pincode" name="pincode" type="text" placeholder="Enter the pincode" class="input-xlarge">
+
+                    <p class="help-block"></p>
+                </div>
+            </div>
+
+            <!-- Button (Double) -->
+            <div class="control-group">
+                <label class="control-label">Finish</label>
+
+                <div class="controls">
+                    <input type="submit" id="register" name="register" class="btn btn-success" />
+                    <button id="cancel" name="cancel" class="btn btn-danger">Cancel</button>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+    <div id="registration-status">
+
+    </div>
+
+</div>

@@ -1,0 +1,42 @@
+#macro(head)
+<head>
+    <title>Cab Stats</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Cab Stats"/>
+
+    <link rel="shortcut icon" href="assets/ico/favicon.ico"/>
+    <link href="/resources/css/bootstrap.css" rel="stylesheet"/>
+    <link href="/resources/css/style.css" rel="stylesheet"/>
+
+    <script src="/resources/js/jquery.js"></script>
+    <script src="/resources/js/cabstats.js"></script>
+</head>
+#end
+
+#macro(default_navbar)<s></s>
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="brand" href="home">Cab Stats</a>
+
+            <div class="nav-collapse">
+                <ul class="nav">
+                    <li><a href="home">Registration</a></li>
+                </ul>
+                <p class="navbar-text pull-right">
+                    <a href="security/j_spring_security_logout">Log out</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+#end
+
+
+#macro(footer)
+<hr/>
+<footer>
+    <p>&copy; PS LVK</p>
+</footer>
+#end
