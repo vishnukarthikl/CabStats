@@ -1,0 +1,14 @@
+<ul class="nav nav-tabs offset3">
+    <li><a href="registerCustomer">Customer Registration</a></li>
+    <li><a href="travelData">Travel Data</a></li>
+</ul>
+
+<div class="container offset3">
+
+    #if(${errorMessage})
+        <div class="alert alert-error">
+            ${errorMessage}
+            <a class="close" data-dismiss="alert">x</a>
+        </div>
+    #end
+</div>

@@ -1,6 +1,6 @@
 #head()
 <body>
-#default_navbar()
+#admin_navbar()
 <div class=container-fluid>
     <div class="row-fluid mainbox">
         <div class="span10">

@@ -1,17 +1,26 @@
-<div>
+<ul class="nav nav-tabs offset3">
+    <li class="active">
+        <a href="registerCustomer">Customer Registration</a>
+    </li>
+    <li><a href="travelData">Travel Data</a></li>
+</ul>
 
-    <form class="form-horizontal" id="customer" modelattribute="customer" method="POST" action="/register" >
+<div class="container offset3">
+
+    <form class="form-horizontal well well-large" id="customer" modelattribute="customer" method="POST"
+          action="/registerCustomer">
         <fieldset>
 
             <!-- Form Name -->
             <h2>Customer Registration</h2>
+            <hr/>
 
             <!-- Text input-->
             <div class="control-group">
                 <label class="control-label">Name</label>
 
                 <div class="controls">
-                    <input id="name" name="name" type="text" placeholder="Enter the name" class="input-xlarge">
+                    <input id="name" name="name" type="text" placeholder="Enter the name" class="input-xlarge span6">
 
                     <p class="help-block"></p>
                 </div>
@@ -24,7 +33,7 @@
                 <div class="controls">
                     <div class="input-prepend">
                         <span class="add-on">+91</span>
-                        <input id="msisdn" name="msisdn" class="span12" placeholder="10 digit phone numbe"
+                        <input id="msisdn" name="msisdn" class="span12" placeholder="10 digit phone number"
                                type="text">
                     </div>
                 </div>
@@ -36,7 +45,8 @@
                 <label class="control-label">Street Address</label>
 
                 <div class="controls">
-                    <input id="street" name="street" type="text" placeholder="Enter the Street Address" class="input-xlarge">
+                    <input id="street" name="street" type="text" placeholder="Enter the Street Address"
+                           class="input-xlarge span6">
 
                     <p class="help-block"></p>
                 </div>
@@ -46,7 +56,7 @@
                 <label class="control-label">Area</label>
 
                 <div class="controls">
-                    <input id="area" name="area" type="text" placeholder="Locality" class="input-xlarge">
+                    <input id="area" name="area" type="text" placeholder="Locality" class="input-xlarge span6">
 
                 </div>
             </div>
@@ -57,18 +67,24 @@
                 <label class="control-label">Pin Code</label>
 
                 <div class="controls">
-                    <input id="pincode" name="pincode" type="text" placeholder="Enter the pincode" class="input-xlarge">
+                    <input id="pincode" name="pincode" type="text" placeholder="Enter the pincode" class="input-xlarge span6">
 
                     <p class="help-block"></p>
                 </div>
             </div>
 
             <!-- Button (Double) -->
+            #if(${successMessage})
+                <div class="alert alert-success">
+                    ${successMessage}
+                    <a class="close" data-dismiss="alert">x</a>
+                </div>
+            #end
+
             <div class="control-group">
-                <label class="control-label">Finish</label>
 
                 <div class="controls">
-                    <input type="submit" id="register" name="register" class="btn btn-success" />
+                    <input type="submit" id="register" name="register" class="btn btn-success"/>
                     <button id="cancel" name="cancel" class="btn btn-danger">Cancel</button>
                 </div>
             </div>

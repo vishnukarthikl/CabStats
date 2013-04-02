@@ -11,11 +11,12 @@
 
     <script src="/resources/js/jquery.js"></script>
     <script src="/resources/js/cabstats.js"></script>
+    <script src="/resources/js/bootstrap-min.js"></script>
 </head>
 #end
 
 #macro(default_navbar)<s></s>
-<div class="navbar navbar-fixed-top">
+<div class="navbar navbar-fixed-top navbar-inverse">
     <div class="navbar-inner">
         <div class="container-fluid">
             <a class="brand" href="home">Cab Stats</a>
@@ -23,6 +24,29 @@
             <div class="nav-collapse">
                 <ul class="nav">
                     <li><a href="home">Registration</a></li>
+                </ul>
+                <p class="navbar-text pull-right">
+                    <a href="security/j_spring_security_logout">Log out</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+#end
+
+
+#macro(admin_navbar)<s></s>
+<div class="navbar navbar-fixed-top navbar-inverse">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="brand" href="home">Cab Stats</a>
+
+            <div class="nav-collapse">
+                <ul class="nav active">
+                    <li><a href="registerCustomer">Registration</a></li>
+                </ul>
+                <ul class="nav">
+                    <li><a href="viewData">View Stats</a></li>
                 </ul>
                 <p class="navbar-text pull-right">
                     <a href="security/j_spring_security_logout">Log out</a>

@@ -28,8 +28,8 @@ public class HomeControllerTest {
     public void shouldSaveCustomersWhenRegistered() throws Exception {
 
         HomeController homeController = new HomeController(customerService);
-        standaloneSetup(homeController).build().perform(post("/register").body(new byte[0])).andExpect(status().isOk());
+        standaloneSetup(homeController).build().perform(post("/registerCustomer").body(new byte[0])).andExpect(status().isOk());
 
-        verify(customerService).register(any(CustomerRegistrationRequest.class));
+        verify(customerService).registerCustomer(any(CustomerRegistrationRequest.class));
     }
 }
