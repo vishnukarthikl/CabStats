@@ -1,5 +1,6 @@
 package com.pslvk.cabstats.controller;
 
+import com.pslvk.cabstats.model.Customer;
 import com.pslvk.cabstats.request.CustomerRegistrationRequest;
 import com.pslvk.cabstats.request.TravelDataRequest;
 import com.pslvk.cabstats.service.CustomerService;
@@ -22,7 +23,7 @@ public class HomeController {
         this.customerService = customerService;
     }
 
-    @RequestMapping(value = {"/","/registerCustomer"})
+    @RequestMapping(value = {"/", "/registerCustomer"})
     public String home() {
         return "/layouts/registerCustomer";
     }
@@ -48,6 +49,18 @@ public class HomeController {
 
         String successMessage = "Travel Data has been entered successfully";
         return new ModelAndView("layouts/travelData").addObject("successMessage", successMessage);
+    }
+
+    @RequestMapping(value = "/getCustomer", method = RequestMethod.GET)
+    @ResponseBody
+    public Customer getCustomer(@RequestParam String msisdn, HttpServletResponse httpServletResponse) {
+        Customer customer = customerService.getDetails(msisdn);
+        if (customer == null) {
+            httpServletResponse.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            return null;
+        }
+        return customer;
+
     }
 
     @ExceptionHandler(Exception.class)

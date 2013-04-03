@@ -8,10 +8,14 @@
     <link rel="shortcut icon" href="assets/ico/favicon.ico"/>
     <link href="/resources/css/bootstrap.css" rel="stylesheet"/>
     <link href="/resources/css/style.css" rel="stylesheet"/>
+    <link href="/resources/css/jquery-ui.css" rel="stylesheet"/>
+    <link href="/resources/css/time-picker.css" rel="stylesheet"/>
 
     <script src="/resources/js/jquery.js"></script>
     <script src="/resources/js/cabstats.js"></script>
     <script src="/resources/js/bootstrap-min.js"></script>
+    <script src="/resources/js/jquery-ui.js"></script>
+    <script src="/resources/js/time-picker.js"></script>
 </head>
 #end
 

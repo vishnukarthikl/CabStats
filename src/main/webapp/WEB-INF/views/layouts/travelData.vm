@@ -22,6 +22,58 @@
                     <input id="msisdn" name="msisdn" type="text" placeholder="" class="input-xlarge search-query span6">
                 </div>
             </div>
+            <div class="alert alert-info" id="customer-details">
+
+            </div>
+            <div>
+                <div class="secondary alert alert-error">
+                    The phone number does not exist, Please provide details
+                </div>
+                <div class="control-group secondary">
+                    <label class="control-label">Name</label>
+
+                    <div class="controls">
+                        <input id="name" name="name" type="text" placeholder="Enter the name"
+                               class="input-xlarge span6">
+
+                        <p class="help-block"></p>
+                    </div>
+                </div>
+                <div class="control-group secondary">
+                    <label class="control-label">Street Address</label>
+
+                    <div class="controls">
+                        <input id="street" name="street" type="text" placeholder="Enter the Street Address"
+                               class="input-xlarge span6">
+
+                        <p class="help-block"></p>
+                    </div>
+                </div>
+
+                <div class="control-group secondary">
+                    <label class="control-label">Area</label>
+
+                    <div class="controls">
+                        <input id="area" name="area" type="text" placeholder="Locality" class="input-xlarge span6">
+
+                    </div>
+                </div>
+
+
+                <!-- Text input-->
+                <div class="control-group secondary">
+                    <label class="control-label">Pin Code</label>
+
+                    <div class="controls">
+                        <input id="pincode" name="pincode" type="text" placeholder="Enter the pincode"
+                               class="input-xlarge span6">
+
+                        <p class="help-block"></p>
+                    </div>
+                </div>
+
+            </div>
+
 
             <!-- Appended Input-->
             <div class="control-group">
@@ -46,6 +98,26 @@
                     </div>
                 </div>
             </div>
+            <div class="control-group">
+                <label class="control-label">Date Of Travel</label>
+
+                <div class="controls">
+                    <input id="date" name="date" class="span4 datepicker" placeholder="" type="text">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">Time Of Travel</label>
+
+
+                <div class="controls">
+                    <div class="input-append bootstrap-timepicker">
+                        <input id="timepicker1" type="text" class="span6">
+                    </div>
+                </div>
+            </div>
+
+
 
             #if(${successMessage})
                 <div class="alert alert-success">
