@@ -7,7 +7,8 @@
 
 <div class="container offset3">
 
-    <form class="form-horizontal well well-large" method="POST" action="/enterTravelData" modelattribute="travelData">
+    <form class="form-horizontal well well-large" method="POST" action="/enterTravelData"
+          modelattribute="travelDataRequest">
         <fieldset>
 
             <!-- Form Name -->
@@ -19,21 +20,19 @@
                 <label class="control-label">Phone no</label>
 
                 <div class="controls">
-                    <input id="msisdn" name="msisdn" type="text" placeholder="" class="input-xlarge search-query span6">
+                    <input id="customerRegistrationRequest.msisdn" name="customerRegistrationRequest.msisdn" type="text"
+                           placeholder="" class="input-xlarge search-query span6">
                 </div>
             </div>
-            <div class="alert alert-info" id="customer-details">
-
-            </div>
             <div>
-                <div class="secondary alert alert-error">
-                    The phone number does not exist, Please provide details
+                <div class="alert" id="customer-status">
                 </div>
                 <div class="control-group secondary">
                     <label class="control-label">Name</label>
 
                     <div class="controls">
-                        <input id="name" name="name" type="text" placeholder="Enter the name"
+                        <input id="customerRegistrationRequest.name" name="customerRegistrationRequest.name" type="text"
+                               placeholder="Enter the name"
                                class="input-xlarge span6">
 
                         <p class="help-block"></p>
@@ -43,7 +42,8 @@
                     <label class="control-label">Street Address</label>
 
                     <div class="controls">
-                        <input id="street" name="street" type="text" placeholder="Enter the Street Address"
+                        <input id="customerRegistrationRequest.street" name="customerRegistrationRequest.street"
+                               type="text" placeholder="Enter the Street Address"
                                class="input-xlarge span6">
 
                         <p class="help-block"></p>
@@ -54,7 +54,8 @@
                     <label class="control-label">Area</label>
 
                     <div class="controls">
-                        <input id="area" name="area" type="text" placeholder="Locality" class="input-xlarge span6">
+                        <input id="customerRegistrationRequest.area" name="customerRegistrationRequest.area" type="text"
+                               placeholder="Locality" class="input-xlarge span6">
 
                     </div>
                 </div>
@@ -65,7 +66,8 @@
                     <label class="control-label">Pin Code</label>
 
                     <div class="controls">
-                        <input id="pincode" name="pincode" type="text" placeholder="Enter the pincode"
+                        <input id="customerRegistrationRequest.pincode" name="customerRegistrationRequest.pincode"
+                               type="text" placeholder="Enter the pincode"
                                class="input-xlarge span6">
 
                         <p class="help-block"></p>
@@ -112,7 +114,7 @@
 
                 <div class="controls">
                     <div class="input-append bootstrap-timepicker">
-                        <input id="timepicker1" type="text" class="span6">
+                        <input id="time" name="time" type="text" class="span6">
                     </div>
                 </div>
             </div>

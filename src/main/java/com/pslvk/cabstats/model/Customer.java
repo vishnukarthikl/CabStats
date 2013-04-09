@@ -1,10 +1,17 @@
 package com.pslvk.cabstats.model;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-@Table(name = "customer")
-public class Customer {
+@Table(name = "customers")
+public class Customer implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,6 +21,8 @@ public class Customer {
     private String street;
     private String area;
     private long pincode;
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "customer", cascade = CascadeType.ALL)
+    private List<Travel> travelList = new ArrayList<Travel>();
 
     private Customer() {
     }
@@ -24,6 +33,15 @@ public class Customer {
         this.street = street;
         this.area = area;
         this.pincode = pincode;
+    }
+
+    @JsonIgnore
+    public List<Travel> getTravelList() {
+        return travelList;
+    }
+
+    public void setTravelList(List<Travel> travelList) {
+        this.travelList = travelList;
     }
 
     public String getArea() {
@@ -64,5 +82,26 @@ public class Customer {
 
     public void setMsisdn(long msisdn) {
         this.msisdn = msisdn;
+    }
+
+    public void addTravelDetails(Travel travel) {
+        travelList.add(travel);
+    }
+
+    @Override
+    public boolean equals(Object that) {
+        return EqualsBuilder.reflectionEquals(this, that);
+    }
+
+    @Override
+    public int hashCode() {
+        return HashCodeBuilder.reflectionHashCode(this);
+    }
+
+    public void update(Customer customerFromRequest) {
+        this.setName(customerFromRequest.getName());
+        this.setStreet(customerFromRequest.getStreet());
+        this.setArea(customerFromRequest.getArea());
+        this.setPincode(customerFromRequest.getPincode());
     }
 }

@@ -7,7 +7,7 @@ public class CustomerRegistrationRequest {
     private String street;
     private long pincode;
 
-    private CustomerRegistrationRequest() {
+    public CustomerRegistrationRequest() {
     }
 
     public CustomerRegistrationRequest(String name, long msisdn, String area, String street, long pincode) {

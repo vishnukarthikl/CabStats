@@ -4,13 +4,16 @@ import com.pslvk.cabstats.model.Customer;
 import com.pslvk.cabstats.request.CustomerRegistrationRequest;
 import com.pslvk.cabstats.request.TravelDataRequest;
 import com.pslvk.cabstats.service.CustomerService;
+import org.apache.commons.lang.math.NumberUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.text.ParseException;
 
 @Controller
 public class HomeController {
@@ -44,7 +47,7 @@ public class HomeController {
 
     @RequestMapping(value = "/enterTravelData", method = RequestMethod.POST)
     @ResponseBody
-    public ModelAndView register(@ModelAttribute("travelData") TravelDataRequest travelDataRequest) throws IOException {
+    public ModelAndView register(@ModelAttribute("travelData") TravelDataRequest travelDataRequest) throws IOException, ParseException {
         customerService.registerTravelData(travelDataRequest);
 
         String successMessage = "Travel Data has been entered successfully";
@@ -54,7 +57,7 @@ public class HomeController {
     @RequestMapping(value = "/getCustomer", method = RequestMethod.GET)
     @ResponseBody
     public Customer getCustomer(@RequestParam String msisdn, HttpServletResponse httpServletResponse) {
-        Customer customer = customerService.getDetails(msisdn);
+        Customer customer = customerService.getDetails(NumberUtils.toLong(msisdn));
         if (customer == null) {
             httpServletResponse.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             return null;

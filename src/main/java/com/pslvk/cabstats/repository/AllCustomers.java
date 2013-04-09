@@ -30,6 +30,6 @@ public class AllCustomers extends HibernateTemplate {
         detachedCriteria.add(Restrictions.eq("msisdn", msisdn));
         List customers = findByCriteria(detachedCriteria);
 
-        return customers.size() == 1 ? (Customer) customers.get(0) : null;
+        return customers.size() >= 1 ? (Customer) customers.get(0) : null;
     }
 }

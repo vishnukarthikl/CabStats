@@ -1,14 +1,16 @@
 package com.pslvk.cabstats.service;
 
 import com.pslvk.cabstats.mapper.CustomerRegistrationMapper;
+import com.pslvk.cabstats.mapper.TravelDataRequestMapper;
 import com.pslvk.cabstats.model.Customer;
+import com.pslvk.cabstats.model.Travel;
 import com.pslvk.cabstats.repository.AllCustomers;
 import com.pslvk.cabstats.request.CustomerRegistrationRequest;
 import com.pslvk.cabstats.request.TravelDataRequest;
-import org.apache.commons.lang.math.NumberUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.converter.json.MappingJacksonHttpMessageConverter;
 import org.springframework.stereotype.Service;
+
+import java.text.ParseException;
 
 @Service
 public class CustomerService {
@@ -25,11 +27,23 @@ public class CustomerService {
         allCustomers.save(customer);
     }
 
-    public void registerTravelData(TravelDataRequest travelDataRequest) {
-        //To change body of created methods use File | Settings | File Templates.
+    public void registerTravelData(TravelDataRequest travelDataRequest) throws ParseException {
+        Travel travel = TravelDataRequestMapper.map(travelDataRequest);
+        Customer customerFromRequest = travel.getCustomer();
+        Customer customerFromDb = allCustomers.findByMsisdn(customerFromRequest.getMsisdn());
+
+        if (customerFromDb != null) {
+            customerFromDb.update(customerFromRequest);
+            travel.setCustomer(customerFromDb);
+            customerFromDb.addTravelDetails(travel);
+            allCustomers.save(customerFromDb);
+        } else {
+            customerFromRequest.addTravelDetails(travel);
+            allCustomers.save(customerFromRequest);
+        }
     }
 
-    public Customer getDetails(String msisdn) {
-        return allCustomers.findByMsisdn(NumberUtils.toLong(msisdn));
+    public Customer getDetails(long msisdn) {
+        return allCustomers.findByMsisdn(msisdn);
     }
 }
