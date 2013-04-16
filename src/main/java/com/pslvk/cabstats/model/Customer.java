@@ -35,7 +35,7 @@ public class Customer implements Serializable {
         this.pincode = pincode;
     }
 
-    @JsonIgnore
+
     public List<Travel> getTravelList() {
         return travelList;
     }
